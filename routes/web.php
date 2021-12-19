@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PosterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [PosterController::class, 'index'])->name('poster.index');
+
+Route::get('/agreement', [PagesController::class, 'agreement'])->name('agreement.index');
+Route::get('/politics', [PagesController::class, 'politics'])->name('politics.index');
